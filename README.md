@@ -48,6 +48,8 @@ For example:
 ```sh
 PORT: 3002
 HOST: 127.0.0.1
+OVERVIEW: localhost:3002
+....
 ```
 
 Next Configure and run the app:
