@@ -43,7 +43,7 @@ npm install -g webpack
 npm install
 ```
 
-Then create a .env file in the main overview-service directory that specifices the host name and port for this app. 
+Then create a .env file in the main overview-service directory that specifices the host addresses and port numbers: for this app. 
 For example: 
 ```sh
 PORT: 3002
