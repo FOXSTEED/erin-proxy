@@ -15,10 +15,10 @@ const nearbyPath = process.env.NEARBY || 'localhost:3003';
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/:listing_id', express.static(path.join(__dirname, 'public')));
 
-// //bryan
+// //bryan & Jeffery
 // app.use('/reviews', (req, res) => {
 //   console.log(req.originalUrl);
-//   axios.get(`http://reviews:3001${req.originalUrl}`)
+//   axios.get(`http://${reviewsPath}${req.originalUrl}`)
 //     .then(res => res.data)
 //     .then((data) => {
 //       res.send(data);
@@ -44,10 +44,10 @@ app.use('/overview', (req, res) => {
     });
 });
 
-// //kirk
+// //kirk & Trever
 // app.use('/nearby', (req, res) => {
 //   console.log(req.originalUrl);
-//   axios.get(`http://nearby:3003${req.originalUrl}`)
+//   axios.get(`http://${nearbyPath}${req.originalUrl}`)
 //     .then(res => res.data)
 //     .then((data) => {
 //       res.send(data);
@@ -58,10 +58,10 @@ app.use('/overview', (req, res) => {
 //     });
 // });
 
-// //kyle
+// //kyle & Ivy
 // app.use('/q-and-a', (req, res) => {
 //   console.log(req.originalUrl);
-//   axios.get(`http://q-and-a:3004${req.originalUrl}`)
+//   axios.get(`http://${qaPath}${req.originalUrl}`)
 //     .then(res => res.data)
 //     .then((data) => {
 //       res.send(data);
@@ -72,7 +72,7 @@ app.use('/overview', (req, res) => {
 //     });
 // });
 
-// //zack
+// //zack Not using this service for SDC
 // app.use('/recommendations', (req, res) => {
 //   console.log(req.originalUrl);
 //   axios.get(`http://recommendations:3005${req.originalUrl}`)
