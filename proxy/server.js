@@ -5,6 +5,7 @@ const path = require('path');
 const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
+const path = process.env.PATH || 3000;
 const overvewPath = process.env.OVERVIEW || 'localhost:3002';
 const reviewsPath = process.env.REVIEW || 'localhost:3001';
 const qaPath = process.env.QANDA || 'localhost:3004';
@@ -87,5 +88,5 @@ app.use('/overview', (req, res) => {
 // });
 
 app.listen(port, () => {
-  console.log(`server running at: http://localhost:${port}`)
+  console.log(`server running at: http://${path}:${port}`)
 });
