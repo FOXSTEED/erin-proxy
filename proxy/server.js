@@ -5,82 +5,86 @@ const path = require('path');
 const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
-
+const overvewPath = process.env.OVERVIEW || 'localhost:3002';
+const reviewsPath = process.env.REVIEW || 'localhost:3001';
+const qaPath = process.env.QANDA || 'localhost:3004';
+const nearbyPath = process.env.NEARBY || 'localhost:3003';
 
 // app.use(morgan('dev'));
 // app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/:listing_id', express.static(path.join(__dirname, 'public')));
 
-//bryan
-app.use('/reviews', (req, res) => {
-  console.log(req.originalUrl);
-  axios.get(`http://reviews:3001${req.originalUrl}`)
-    .then(res => res.data)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send();
-    });
-});
+// //bryan
+// app.use('/reviews', (req, res) => {
+//   console.log(req.originalUrl);
+//   axios.get(`http://reviews:3001${req.originalUrl}`)
+//     .then(res => res.data)
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.send();
+//     });
+// });
 
-//eric
+//eric & Erin 
 app.use('/overview', (req, res) => {
   console.log(req.originalUrl);
-  axios.get(`http://overview:3002${req.originalUrl}`)
+  axios.get(`http://${overvewPath}${req.originalUrl}`)
     .then(res => res.data)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
+      console.log("this is the path it is trying to get: ", req.originalUrl)
       console.log(err);
       res.send();
     });
 });
 
-//kirk
-app.use('/nearby', (req, res) => {
-  console.log(req.originalUrl);
-  axios.get(`http://nearby:3003${req.originalUrl}`)
-    .then(res => res.data)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send();
-    });
-});
+// //kirk
+// app.use('/nearby', (req, res) => {
+//   console.log(req.originalUrl);
+//   axios.get(`http://nearby:3003${req.originalUrl}`)
+//     .then(res => res.data)
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.send();
+//     });
+// });
 
-//kyle
-app.use('/q-and-a', (req, res) => {
-  console.log(req.originalUrl);
-  axios.get(`http://q-and-a:3004${req.originalUrl}`)
-    .then(res => res.data)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send();
-    });
-});
+// //kyle
+// app.use('/q-and-a', (req, res) => {
+//   console.log(req.originalUrl);
+//   axios.get(`http://q-and-a:3004${req.originalUrl}`)
+//     .then(res => res.data)
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.send();
+//     });
+// });
 
-//zack
-app.use('/recommendations', (req, res) => {
-  console.log(req.originalUrl);
-  axios.get(`http://recommendations:3005${req.originalUrl}`)
-    .then(res => res.data)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send();
-    });
-});
+// //zack
+// app.use('/recommendations', (req, res) => {
+//   console.log(req.originalUrl);
+//   axios.get(`http://recommendations:3005${req.originalUrl}`)
+//     .then(res => res.data)
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.send();
+//     });
+// });
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`)
