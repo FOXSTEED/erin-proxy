@@ -1,0 +1,6 @@
+{
+  "Overview": "http://localhost:3001/app",
+  "QandA": "http://localhost:3002/app",
+  "Reviews": "http://localhost:3003/app",
+  "Nearby": "http://localhost:3004/app"
+}
