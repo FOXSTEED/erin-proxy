@@ -6,9 +6,10 @@ const exists = Promise.promisify(fs.stat);
 const loadBundle = function(cache, item, filename) {
   // add a small delay to ensure pipe has closed
   setTimeout(() => {
+    filename = filename.replace('./proxy/','./')
     console.log('loading:', filename);
     cache[item] = require(filename).default;    
-  }, 1);
+  }, 1000);
 };
 
 const fetchBundles = (path, services, suffix = '', require = false) => {
