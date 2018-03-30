@@ -10,8 +10,8 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/:listing_id', express.static(path.join(__dirname, 'public')));
 
-const clientBundles = './public/services';
-const serverBundles = './templates/services';
+const clientBundles = './proxy/public/services';
+const serverBundles = './proxy/templates/services';
 const serviceConfig = require('./service-config.json');
 const services = require('./loader.js')(clientBundles, serverBundles, serviceConfig);
 
