@@ -28,8 +28,8 @@ const renderComponents = (components, props = {}) => {
   });
 }
 
-// need to edit this to go to the correct path
-app.get('/items/:id', function(req, res){
+app.get('/:id', function(req, res){
+  // will only take :id into the renderComponets
   let components = renderComponents(services, {itemid: req.params.id});
   res.end(Layout(
     'SDC TripAdvisor',
